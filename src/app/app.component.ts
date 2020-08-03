@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-disney-character';
+  title = 'Disney Character';
+  public isMenuCollapsed = true;
 }

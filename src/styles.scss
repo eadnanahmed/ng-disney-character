@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+$font-stack: 'Noto Sans',
+sans-serif;
+
+body {
+  font-family: $font-stack;
+}
+
+.tooltip {
+  font-family: $font-stack;
+}

@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Favorite</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fav of characters">
+            <th scope="row">
+              <a class="btn btn-link" placement="left" ngbTooltip="Click for Details"
+                (click)="goToCharacterDetails(fav.id, fav.isFavorite)">
+                <img style="height:30px; width: 30px" src='{{ fav.smallImageURL }}'
+                  onerror="this.src='../../../assets/images/404.png'" />
+              </a>
+              <!-- <a [routerLink]="['character', fav.id]">
+                <img style="height:30px; width: 30px" src='{{ fav.smallImageURL }}' />
+              </a> -->
+            </th>
+            <td>
+              <a class="btn btn-link" placement="right" ngbTooltip="Click for Details"
+                (click)="goToCharacterDetails(fav.id, fav.isFavorite)">{{ fav.name }}</a>
+            </td>
+            <td>
+              <!-- <button (click)="changeFavorite(fav)" class="btn-primary">
+                {{ fav.isFavorite }}
+              </button> -->
+              <a class="btn" placement="right" [ngbTooltip]="fav.isFavorite ? 'Remove Favorite' : 'Make Favorite'"
+                (click)="changeFavorite(fav)">
+                <ng-container *ngIf="fav.isFavorite; then favTemplate; else unfavTemplate"></ng-container>
+                <!-- {{ fav.isFavorite ? 'Yes' : 'No' }} -->
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #favTemplate>
+  <img src='../../../assets/images/favorite.png' />
+</ng-template>
+<ng-template #unfavTemplate>
+  <img src='../../../assets/images/unfavorite.png' />
+</ng-template>

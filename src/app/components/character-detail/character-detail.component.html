@@ -1,0 +1,65 @@
+<div class="container" *ngIf="character">
+  <div class="row">
+    <div class="col-2">
+      <img style="height:100px; width: 100px" src='{{ character.largeImageURL }}'
+        onerror="this.src='../../../assets/images/404.png'" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      Favorite:
+    </div>
+    <div class="col-10">
+      <button class="btn btn-warning" placement="right" ngbTooltip="Click to Change"
+        (click)="changeFavorite(character)">
+        {{ character.isFavorite ? 'Yes' : 'No' }}
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      Name:
+    </div>
+    <div class="col-10">
+      {{ character.name }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      Phone:
+    </div>
+    <div class="col-10">
+      {{ character.phone.home }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      Address:
+    </div>
+    <div class="col-10">
+      {{ character.address.street }}, {{ character.address.city }}, {{ character.address.state }},
+      {{ character.address.zipCode }}, {{ character.address.country }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      BirthDate:
+    </div>
+    <div class="col-10">
+      {{ character.birthdate | date }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      Email:
+    </div>
+    <div class="col-10">
+      {{ character.emailAddress }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <button class="btn btn-secondary" (click)="backToCharacterList()">Back</button>
+    </div>
+  </div>
+</div>
